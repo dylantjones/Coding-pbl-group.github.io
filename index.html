@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<h1>Quiz</h1>
+<div class="quiz-container">
+  <div id="quiz"></div>
+</div>
+<div id="buttons">
+<button id="previous">Previous Question</button>
+<button id="next">Next Question</button>
+<button id="submit">Submit Quiz</button>
+<button id="explain">Explanations</button>
+<button id="reset">Reset Quiz</button>
+</div>
+<div id="results"></div>
+
+<script>
+(function quiz() {
+alert("Press ok to start quiz.")
+  const myQuestions = [
+    {
+      question: "1.Who was the fascist prime minister who ruled as an absolute dictator, and was overthrown by his people in 1943?",
+            answers: {
+        a: "Adolf Hitler",
+        b: "Hirohito",
+        c: "Benito Mussolini"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "2.Who was the president of the United States when the atomic bombs were dropped on Hiroshima and Nagasaki?",
+      image:"",
+      answers: {
+        a: "Harry S Truman ",
+        b: "Dwight D. Eisenhower ",
+        c: "Franklin Delano Roosevelt "
+      },
+      correctAnswer: "a"
+    },
+  {
+      question: "3.Who initiated the attack on Pearl Harbor?",
+      image:"",
+      answers: {
+        a: "Hirohito",
+        b: "Adolf Hitler",
+        c: "Yamamoto Isoroku",
+        d: "Joseph Stalin"
+      },
+      correctAnswer: "c"
+    },
+      {
+      question: "4.Who fought in the Battle of Stalingrad?",
+      image:"",
+      answers: {
+        a: "Nazi’s vs Soviet’s",
+        b: "Soviet vs USA",
+        c: "Nazi’s vs USA",
+        d: "Soviets vs Japanese"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "5.What was the Battle of Verdun?",
+      image:"",
+      answers: {
+        a: "When the US captured a Japanese island",
+        b: "The longest battle of ww1",
+        c: "When Hitler invaded Poland",
+        d: "The British and US invading Russia"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "6.Who were the main enemies against the UN and South Korea in the Korean War?",
+      image:"",
+      answers: {
+        a: "China, North Korea, and the Soviet Union",
+        b: "Greece, China, and North Korea",
+        c: "The Soviet Union, China, and France",
+        d: "North Korea, Turkey, and the Soviet Union"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "7.What conflict did the US lose after WW2?",
+      image:"",
+      answers: {
+        a: "Korean War",
+        b: "Vietnam War",
+        c: "Philippines conflict",
+        d: "Invasion of Grenada"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "8.Which one of these below was not a major factor in the start of ww2?",
+      image:"",
+      answers: {
+        a: "Hitler rising to power",
+        b: "The Treaty of Versailles",
+        c: "The Irish War of Independence ",
+        d: "The Great Depression"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "9.Choose one or more of the following that was a good effect pre ww2:",
+      image:"",
+      answers: {
+        a: "The splitting of business partners Edgar Gott and Charles Osner of the Boeing company",
+        b: "The need for a unified nation",
+        c: "The end of Colonialism",
+        d: "Rise in inflation"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "10.What weapon were the Nazi’s mainly know for using during ww2?",
+      image:"",
+      answers: {
+        a: "The BAR",
+        b: "MP40",
+        c: "Nobel 808",
+        d: "Type 11"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "11.What was the V-1",
+      image:"",
+      answers: {
+        a: "A cruise missile",
+        b: "A German anti tank sniper",
+        c: "An American aircraft used in the bombings of Hiroshima and Nagasaki",
+        d: "The Japanese torpedoes used at Pearl Harbor"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "12.What weaponry was developed in ww2 but not used until the Korean War?",
+      image:"",
+      answers: {
+        a: "Sturmgewehr 44",
+        b: "Napalm",
+        c: "C-2",
+        d: "M1911 handgun"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "13.Identify whether each group of words is a complete sentence, fragments, or run-on: Which was built in 1950.",
+      image:"",
+      answers: {
+        a: "sentence",
+        b: "fragment",
+        c: "run-on",
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "14.Kate gave me a computer game for my birthday last week",
+      image:"",
+      answers: {
+        a: "sentence",
+        b: "fragment",
+        c: "run on",
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "15.Choose the correct sentence",
+      image:"",
+      answers: {
+        a: "This is what I ate for breakfast an apple and a bowl of cereal.",
+        b: "This is what I ate for breakfast, an apple and a bowl of cereal.",
+        c: "This is what I ate for breakfast: an apple and a bowl of cereal.",
+        d: "This is what I ate for breakfast; an apple and a bowl of cereal."
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "16.Choose the correct sentence.",
+      image:"",
+      answers: {
+        a: "My sister loves mysteries; my brother likes comics.",
+        b: "My sister loves mysteries, my brother likes comics.",
+        c: "My sister loves mysteries my brother likes comics.",
+        d: "my sister loves mysteries: my brother likes comics."
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "17.Not only the students but also their instructor________ been called to the principal’s office.",
+      image:"",
+      answers: {
+        a: "Have",
+        b: "Has",
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "18.A large number of voters still____________ along straight-party lines.",
+      image:"",
+      answers: {
+        a: "Votes",
+        b: "Vote",
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "19._______sed.",
+      image:"",
+      answers: {
+        a: "He",
+        b: "soy",
+        c: "tengo",
+        d: "estoy"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "20._____dias",
+      image:"",
+      answers: {
+        a: "buen",
+        b: "buenas",
+        c: "bien",
+        d: "buenos"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "21.How do you say what is today?",
+      image:"",
+      answers: {
+        a: "que dia es hoy",
+        b: "qué dia hoy es",
+        c: "día qué es hoy",
+        d: "es día qué hoy es"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "22.What does Manana es translate to in english",
+      image:"",
+      answers: {
+        a: "today is ",
+        b: "tomorrow is",
+        c: "yesterday was",
+        d: "today will be"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "23.Is es present tense, past tense, or future tense?",
+      image:"",
+      answers: {
+        a: "present",
+        b: "past",
+        c: "future"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "24.Is ira present tense, past tense, or future tense?",
+      image:"",
+      answers: {
+        a: "past",
+        b: "present",
+        c: "future"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "25.Which one of these is a scalene quadrilateral",
+      image:"",
+      answers: {
+        a: "rhombus",
+        b: "square",
+        c: "right triangle",
+        d: "rectangle"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "26.Which type of quadrilateral has exactly one pair of parallel sides",
+      image:"",
+      answers: {
+        a: "rectangle",
+        b: "kite",
+        c: "parallelogram",
+        d: "trapezoid"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "27.The coordinates of a parallelogram are given. Determine whether the figure is a square?",
+      image:"",
+      answers: {
+        a: "(-2,3),(3,3),(3,0),(-2,0)",
+        b: "(0,1),(-1,3),(1,4),)(2,2)",
+        c: "(3,6),(6,2),(-2,3),(-5,7)",
+        d: "(3,8),(-1,6),(1,2),(5,4)"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "28.M is the fourth vertex of a parallelogram. The coordinates of the vertices are (6,4),(8,1), and (2,0). M can have any of the following coordinates except:",
+      image:"",
+      answers: {
+        a: "(6,-2)",
+        b: "(12,5)",
+        c: "(4,-3)",
+        d: "(0,3)"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "29.PQRS is a parallelogram. Must angle p= angle r and angle q= angle s?",
+      image:"",
+      answers: {
+        a: "Yes",
+        b: "No"    
+       },
+      correctAnswer: "a"
+    },
+    {
+      question: "30. ABCD is a square find the value of angle a",
+      image:"",
+      answers: {
+        a: "45",
+        b: "90",
+        c: "160",
+        d: "120"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "31.Boiling water, melting point, and density are some of an element’s ",
+      image:"",
+      answers: {
+        a: "Non reactive properties",
+        b: "Physical properties",
+        c: "Chemical properties",
+        d: "Pure properties"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "32.An element’s ability to react with oxygen is a an example of a",
+      image:"",
+      answers: {
+        a: "Pure substances",
+        b: "Physical property",
+        c: "Chemical property",
+        d: "Melting point"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "33.Which of the following is an example when an electron absorbs energy?",
+      image:"",
+      answers: {
+        a: "When it goes from the four energy level to the first",
+        b: "When an electron turn releases a photon.",
+        c: "When it maintains constant energy and doesn’t change its energy level.",
+        d: "When it goes from second energy level to the fourth"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "34.When writing electron configurations, electrons are represented in their lowest possible energy state, called their_____",
+      image:"",
+      answers: {
+        a: "Excited state",
+        b: "configuration state",
+        c: "lowest state",
+        d: "ground state"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "35.Chemical properties depend upon",
+      image:"",
+      answers: {
+        a: "Electronic configuration",
+        b: "Valence shell electronic configuration",
+        c: "Atomic mass",
+        d: "none of the above"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "36.Energy required to remove an electron from outermost shell is called",
+      image:"",
+      answers: {
+        a: "Potential energy",
+        b: "kinetic energy",
+        c: "mechanical energy",
+        d: "ionization energy"
+      },
+      correctAnswer: "b"
+    }    
+  ];
+  function buildQuiz() {
+    // we'll need a place to store the HTML output
+    const output = [];
+    // for each question...
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+    
+        const image = [];
+        
+    
+      // we'll want to store the list of answer choices
+      const answers = [];
+      // and for each available answer...
+      for (letter in currentQuestion.answers) {
+        // ...add an HTML radio button
+        answers.push(
+          `<label>
+             <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+           </label>`
+        );
+      }
+      // add this question and its answers to the output
+      output.push(
+        `<div class="slide">
+           <div class="question"> ${currentQuestion.question} </div>
+           <div class="image"><img src=${currentQuestion.image}></div>
+           <div class="answers"> ${answers.join("")} </div>
+         </div>`
+      );
+    });
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join("");
+  }
+  function showResults() {
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll(".answers");
+    // keep track of user's answers
+    var numCorrect = 0;
+    // for each question...
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+      // if answer is correct
+      if (userAnswer === currentQuestion.correctAnswer) {
+        // add to the number of correct answers
+        numCorrect++;
+        // color the answers green
+        answerContainers[questionNumber].style.color = "lightgreen";
+      } else {
+        // if answer is wrong or blank
+        // color the answers red
+        answerContainers[questionNumber].style.color = "red";
+      }
+    });
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+}
+function explanation(){
+if (window.confirm('click "Ok" for explanations.')) 
+{
+window.location.href='https://docs.google.com/document/d/1I8ROaJJs3K3qawomPNSh8MzO0zfrCpeh3qA3U2fNnzA';
+};
+}
+  function showSlide(n) {
+    slides[currentSlide].classList.remove("active-slide");
+    slides[n].classList.add("active-slide");
+    currentSlide = n;
+    
+    if (currentSlide === 0) {
+      previousButton.style.display = "none";
+    } else {
+      previousButton.style.display = "inline-block";
+    }
+    
+    if (currentSlide === slides.length - 1) {
+      nextButton.style.display = "none";
+      submitButton.style.display = "inline-block";
+    } else {
+      nextButton.style.display = "inline-block";
+      submitButton.style.display = "none";
+    }
+    if (currentSlide === slides.length - 1) {
+      resetButton.style.display = "inline-block";
+        explainButton.style.display = "inline-block";
+    } else {
+      resetButton.style.display = "none";
+        explainButton.style.display = "none";
+    }
+  }
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+  }
+  const quizContainer = document.getElementById("quiz");
+  const resultsContainer = document.getElementById("results");
+  const submitButton = document.getElementById("submit");
+  const resetButton = document.getElementById("reset");
+  // display quiz right away
+  buildQuiz();
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("next");
+  const explainButton = document.getElementById("explain");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+  showSlide(0);
+  // on submit, show results
+  submitButton.addEventListener("click", showResults);
+  nextButton.addEventListener("click", showNextSlide);
+  explainButton.addEventListener("click", explanation);
+  previousButton.addEventListener("click", showPreviousSlide);
+  resetButton.addEventListener("click", resetQuiz);
+  
+  function resetQuiz(){
+    quiz()
+    let n = 0;
+    slides[currentSlide].classList.remove("active-slide");
+    slides[n].classList.add("active-slide");
+    currentSlide = n;
+    resultsContainer.innerHTML = null
+  }
+  
+})();
+</script>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
+body{
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    color: #333;
+  font-weight: 300;
+  text-align: center;
+  background-color: #f8f6f0;
+}
+h1{
+  font-weight: 300;
+  margin: 0px;
+  padding: 10px;
+  font-size: 20px;
+  background-color:pink;
+  color: #fff;
+}
+.question{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.answers {
+  margin-bottom: 20px;
+  text-align: left;
+  display: inline-block;
+}
+.answers label{
+  display: block;
+  margin-bottom: 10px;
+}
+button{
+  font-family: 'Work Sans', sans-serif;
+    font-size: 22px;
+    background-color: green;
+    color: #fff;
+    border: 1px;
+    border-radius: 3px;
+    padding: 30px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+button:hover{
+    background-color: red;
+}
+#buttons{
+    margin-top:200px;
+}
+.slide{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.active-slide{
+  opacity: 1;
+  z-index: 2;
+}
+.quiz-container{
+  position: relative;
+  height: 200px;
+  margin-top: 40px;
+}
+img{
+width:20%;
+height:100%;
+}
+</style>
+
+
+
+
+
+
